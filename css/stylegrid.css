@@ -1,0 +1,163 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+body {
+    font-family: montserrat;
+    background: linear-gradient(to bottom, #ff4f8b, #dff1ff);
+}
+h2{
+    padding-bottom: 10px;
+}
+
+/* Header */
+header{
+    width: 100%;
+    height: 80px;
+    background: #7cb6e2;
+    top: 0;
+}
+label.logo{
+    color: black;
+    font-size: 35px;
+    line-height: 80px;
+    padding: 0 100px;
+    font-weight: bold;
+}
+aside .form-control{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+header ul{
+    float: right;
+    margin-right: 20px;
+}
+header ul li{
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 5px;
+}
+header ul li a{
+    color: black;
+    font-size: 17px;
+    padding: 7px 13px;
+    border-radius: 3px;
+}
+a.active,a:hover{
+    background: #507ba7;
+    color: white;
+    transition: .5s;
+}
+.checkbtn{
+    font-size: 30px;
+    color: black;
+    float: right;
+    line-height: 80px;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+}
+#check{
+    display: none;
+}
+
+/* Container */
+.container{
+    display: grid;
+    height: 100%;
+    grid-template-columns: 0.7fr 3.3fr;
+    grid-template-rows: 1.2fr 1.5fr;
+    grid-template-areas: 
+    "sidebar content1"
+    "sidebar content2";
+    text-align: center;
+    grid-gap: 0.2rem;
+}
+
+/* Container Sidebar*/
+#sidebar{
+    background: #55d0e6;
+    grid-area: sidebar;
+    padding: 20px;
+}
+#sidebar .service{
+    border-bottom: 1px black solid;
+}
+#sidebar .activity{
+    border-bottom: 1px black solid;
+}
+#sidebar > div{
+    padding-bottom: 10px;
+}
+#content1{
+    grid-area: content1;
+    padding-top: 20px;
+}
+#content2{
+    grid-area: content2;
+    padding: 25px;
+}
+
+
+
+@media (max-width: 1140px) {
+    .container{
+        padding-top: 80px;
+    }
+    .checkbtn{
+        display: block;
+    }
+    label.logo{
+        font-size: 26px;
+        padding-left: 50px;
+    }
+    header{
+        position: fixed;
+    }
+    ul{
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background: #507ba7;
+        top: 80px;
+        left: -100%;
+        text-align: center;
+        transition: all .6s;
+    }
+    header ul li{
+        display: block;
+        margin: 50px 0;
+        line-height: 20px;
+    }
+    header ul li a {
+        font-size: 20px;
+    }
+    a:hover,a.active{
+        background: none;
+        color: white;
+    }
+    #check:checked ~ ul{
+        left: 0;
+    }
+}
+@media (max-width: 870px) {
+    label.logo{
+        font-size: 25px;
+        line-height: 80px;
+        padding: 0 20px;
+        font-weight: bold;
+    }
+    .container {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 0.5fr 0.8fr;
+        grid-template-areas: 
+        "content1"
+        "content2"
+        "sidebar";
+    }
+}
